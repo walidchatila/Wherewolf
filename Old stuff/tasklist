@@ -1,0 +1,8 @@
+from flask import Flask
+app = Flas(_name_)
+
+app.route("/")
+def hello ():
+	return "Hellow World"
+
+@app.route("/user"), methods = []

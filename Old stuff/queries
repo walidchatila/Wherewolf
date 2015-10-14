@@ -1,0 +1,42 @@
+
+#My Bitbucket repository
+https://bitbucket.org/walidchatila/wherewolf
+
+
+
+#Return the top 5 players nearest a certain position if you know the lat, lng pair
+#INPUT the lat, lng (below lat = 3 and lng =3)
+SELECT (lat-3)*(lat-3)+(lng-3)*(lng-3) as distance, playerid, lat, lng FROM player JOIN user ON (user.userid=player.userid) WHERE player.is_dead=0 and player.game_id= 1 ORDER BY distance LIMIT 5;
+
+
+#Update the position of the player if you only know the username as input
+# the username used below is rfdickerson
+UPDATE player 
+	SET lat = 20, lng = 30
+WHERE playerid in 
+	(SELECT playerid
+		FROM player join user 
+		WHERE player.userid = user.userid and user.username = 'rfdickerson');
+
+
+#Get the last 10 achievements a user has won if you only know the username as input
+# the username used below is rfdicerson
+SELECT name, description, user_achievement.created_at FROM achievement 
+join user_achievement, user 
+where user.userid = user_achievement.userid and achievement.achievementid = user_achievement.achievementid and  user.username = 'rfdickerson' 
+ORDER BY user_achievement.created_at DESC LIMIT 10;
+
+#Add an item to player's inventory by either creating a new record or incrementing the quantity
+#INPUT the playerid, itemid (below player id = 1, item id =4)
+UPDATE inventory set quantity = quantity + 1 where itemid = 4 and playerid = 1;
+INSERT OR IGNORE INTO  inventory(plyerid, itemid, quantity) VALUES(1, 4, 0;
+
+
+INSERT OR IGNORE INTO  inventory(plyerid, itemid, quantity) VALUES(1, 4, 0;
+UPDATE inventory set quantity = quantity + 1 where itemid = 4 and playerid = 1;
+
+#Remove an item from a player's inventory by either decrementing the quantity or leaving the quantity set to zero.
+# INPUT the playerid, itemeid (below playerid =1, itemid = 4)
+UPDATE inventory set quantity = quantity - 1 where quantity > 0 and itemid = 4 and playerid = 1;
+DELETE from inventory where quantity = 0; 
+

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+    package="edu.utexas.chatila.wherewolf"
+    android:versionCode="1"
+    android:versionName="1.0" >
+
+    <uses-sdk
+        android:minSdkVersion="14"
+        android:targetSdkVersion="19" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED"/>
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    
+    <application
+        android:allowBackup="true"
+        android:icon="@drawable/ic_launcher"
+        android:label="@string/app_name"
+        android:theme="@style/AppTheme" >
+        <service android:name="edu.utexas.chatila.wherewolf.WherewolfService"/>
+    
+   	 	<receiver android:name=".WherewolfBootReceiver">
+        	<intent-filter>
+            	<action android:name="android.intent.action.BOOT_COMPLETED" />
+            	<action android:name="android.intent.action.QUICKBOOT_POWERON" />
+        	</intent-filter>
+    	</receiver>
+        
+        <activity
+            android:name="edu.utexas.chatila.wherewolf.LoginActivity"
+            android:label="@string/app_name" >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
+        <activity
+            android:name="edu.utexas.chatila.wherewolf.RegisterActivity"
+            android:label="@string/title_activity_register"
+            android:parentActivityName="edu.texas.chatila.wherwolf" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.texas.chatila.wherwolf" />
+        </activity>
+        <activity
+            android:name=".GameSelection"
+            android:label="@string/title_activity_game_selection"
+            android:parentActivityName="edu.utexas.chatila.wherewolf" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.utexas.chatila.wherewolf" />
+        </activity>
+        <activity
+            android:name="edu.utexas.chatila.wherewolf.MainScreenActivity"
+            android:label="@string/title_activity_main_screen"
+            android:parentActivityName="edu.utexas.chatila.wherewolf" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.utexas.chatila.wherewolf"/>
+        </activity>
+        <activity
+            android:name="edu.utexas.chatila.wherewolf.CreateGame"
+            android:label="@string/title_activity_create_game"
+            android:parentActivityName="edu.utexas.chatila.wherewolf" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+       			android:value="edu.utexas.chatila.wherewolf" />
+        </activity>
+        <activity
+            android:name="edu.utexas.chatila.wherewolf.GameLobby"
+            android:label="@string/title_activity_game_lobby"
+            android:parentActivityName="edu.utexas.chatila.wherewolf" >
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="edu.utexas.chatila.wherewolf" />
+        </activity>
+    </application>
+
+</manifest>

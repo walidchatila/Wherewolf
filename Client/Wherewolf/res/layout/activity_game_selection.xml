@@ -1,0 +1,45 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="@drawable/purplebg"
+    tools:context="edu.utexas.chatila.wherewolf.activities.GameSelection" >
+
+    <Button
+        android:id="@+id/CreateGameButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:minWidth="32dp"
+        android:text="@string/CreateGame" />
+
+    <ListView
+        android:id="@+id/games_list"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:layout_alignParentTop="true"
+        android:dividerHeight="10dp"
+        android:listSelector="@android:color/black"
+        android:minHeight="20dp" >
+    </ListView>
+    
+    <TextView
+    android:id="@+id/error_text"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_marginTop="18dp"
+    android:textColor="@android:color/white" />
+
+    <Button
+        android:id="@+id/JoinGameButton"
+        android:layout_width="150dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_alignParentRight="true"
+        android:minWidth="32dp"
+        android:text="@string/JoinGame" />
+    
+</RelativeLayout>
